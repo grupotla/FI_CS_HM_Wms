@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<script LANGUAGE="javascript">
+
+			function ShowGraph()
+			{
+				
+					window.parent.frames('graph').location.href='crDemandViewer.aspx?';
+				
+			}
+			
+			function getQueryString( sProp ) {
+				var re = new RegExp( sProp + "=([^\\&]*)", "i" );
+				var a = re.exec( document.location.search );
+				if ( a == null )
+					return "";
+				return a[1];
+			}
+
+			function changeCssFile( sCssFile ) {
+				var loc = String(document.location);
+				var search = document.location.search;
+				if ( search != "" )
+					loc = loc.replace( search, "" );
+				loc = loc + "?css=" + sCssFile;
+				document.location.replace( loc );
+			}
+
+			var cssFile = getQueryString( "css" );
+			if ( cssFile == "" ){
+				cssFile = "../../Include/styles/qnx.css";
+			}
+			
+			document.write("<link type=\"text/css\" rel=\"StyleSheet\" href=\"" + cssFile + "\" />" );
+
+		</script>
+		<script language="javascript" src="../../Include/js/coolbuttons.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../Include/styles/titles.css">
+		<meta NAME="GENERATOR" Content="Microsoft FrontPage 5.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</HEAD>
+	<body topmargin="0" leftmargin="0" scroll="no">
+		<table WIDTH="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<th bgcolor="Cornflowerblue" valign="middle" align="center" height="35" width="3%">
+					&nbsp;<img border="0" SRC="../../Include/Images/demand_small.gif" width="16" height="16">
+				</th>
+				<th bgcolor="Cornflowerblue" align="left">
+					<P>Indicador de Atencion de Demanda</P>
+				</th>
+			</tr>
+		</table>
+		
+	</body>
+</HTML>

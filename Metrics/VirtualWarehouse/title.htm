@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<script LANGUAGE="javascript">
+
+			function ShowGraph()
+			{
+				
+				if (cboBuildings.value != '' )
+				{
+					window.parent.frames('graph').location.href='VirtualWarehouse.aspx?Building='+cboBuildings.value+"&Product="+txtProduct.value;
+				}				
+			}
+			
+			function getQueryString( sProp ) {
+				var re = new RegExp( sProp + "=([^\\&]*)", "i" );
+				var a = re.exec( document.location.search );
+				if ( a == null )
+					return "";
+				return a[1];
+			}
+
+			function changeCssFile( sCssFile ) {
+				var loc = String(document.location);
+				var search = document.location.search;
+				if ( search != "" )
+					loc = loc.replace( search, "" );
+				loc = loc + "?css=" + sCssFile;
+				document.location.replace( loc );
+			}
+
+			var cssFile = getQueryString( "css" );
+			if ( cssFile == "" ){
+				cssFile = "../../Include/styles/qnx.css";
+			}
+			
+			document.write("<link type=\"text/css\" rel=\"StyleSheet\" href=\"" + cssFile + "\" />" );
+
+		</script>
+		<script language="javascript" src="../../Include/js/coolbuttons.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../Include/styles/titles.css">
+		<meta NAME="GENERATOR" Content="Microsoft FrontPage 5.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</HEAD>
+	<body topmargin="0" leftmargin="0" scroll="no">
+		<table WIDTH="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<th bgcolor="CornflowerBlue" valign="middle" align="center" height="35" width="3%">
+					&nbsp;<img border="0" SRC="../../Include/Images/volume.gif" width="16" height="16">
+				</th>
+				<th bgcolor="CornflowerBlue" align="left">
+					<P>
+						Bodega Virtual</P>
+				</th>
+			</tr>
+		</table>
+		<table WIDTH="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td bgcolor="silver" width="40" height="25">
+					<img src="../../include/images/clearpixel.gif" width="1" height="1">
+				</td>
+				<td bgcolor="silver" width="40" height="25">
+					Edificio:
+				</td>
+				<td bgcolor="silver" width="250">
+					<select id="cboBuildings" name="cboBuildings" style="FONT-SIZE: 8pt; WIDTH: 100%; FONT-FAMILY: verdana">
+						<option value="001">Materia Prima</option>
+						<option value="002">Producto Terminado</option>
+						<option value="003">Proceso</option>
+					</select>
+				</td>
+				<td width="5" bgcolor="silver"><img src="../../include/images/clearpixel.gif" width="1" height="1"></td>
+				<td width="18" bgcolor="silver"></td>
+				<td width="*" bgcolor="silver"><img src="../../include/images/clearpixel.gif" width="1" height="1">
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="silver" width="30" height="25">
+					<img src="../../include/images/clearpixel.gif" width="1" height="1">
+				</td>
+				<td bgcolor="silver" width="30" height="25">
+					Producto
+				</td>
+				<td bgcolor="silver" width="250">
+					<input type=text name=txtProduct id=txtProduct style="FONT-SIZE: 8pt; WIDTH: 100%; FONT-FAMILY: verdana">
+				</td>
+				<td width="5" bgcolor="silver"><img src="../../include/images/clearpixel.gif" width="1" height="1"></td>
+				<td width="18" bgcolor="silver" onclick="ShowGraph();" style="CURSOR:hand"><img src="../../include/images/go.gif" width="18" height="16"></td>
+				<td width="*" bgcolor="silver"><img src="../../include/images/clearpixel.gif" width="1" height="1">
+				</td>
+			</tr>
+		</table>
+	</body>
+</HTML>
